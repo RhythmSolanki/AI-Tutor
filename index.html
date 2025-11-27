@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Tutor</title>
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.12.4/build/spline-viewer.js"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #181818;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .spline-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      spline-viewer {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+      /* Second viewer styling */
+      .spline-corner-viewer {
+        position: absolute;
+        right: 0px;
+        bottom: 2px;
+        width: 510px;
+        height: 500px;
+        overflow: hidden;
+        border: transparent;
+        z-index: 1000;
+        transition: transform 0.15s;
+      }
+      .spline-corner-viewer:hover {
+        transform: scale(1.05);
+      }
+      .spline-corner-viewer spline-viewer {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Hover effect: glowing purple-blue border */
+      .small-box:hover {
+        border-image: linear-gradient(45deg, rgb(221, 0, 221), blue) 1;
+        box-shadow: 0 0 20px rgba(138, 43, 226, 0.8),
+          0 0 40px rgba(75, 0, 130, 0.6);
+        border-radius: 50px;
+      }
+      #DecoleLOGO {
+        height: 80px;
+        width: 150px;
+        z-index: 3;
+      }
+
+      #logoD{
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+      }
+      #sentryLogo{
+        height: 100px;
+        width: 250px;
+      }
+      .small-box {
+        position: absolute;
+        display: flex;       /* Activates flexbox layout */
+        justify-content: center;
+        align-items: center; /* Centers the images horizontally (optional) */
+        gap: 140px;  
+        top: 550px; /* adjust position as needed */
+        right: 1020px;
+        left: 500px;
+        width: 550px;
+        height: 150px;
+        /* example color */
+        border-radius: 30px;
+        z-index: 2000;
+        /* Initial border setup */
+        transition: all 0.4s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Fullscreen Spline Viewer -->
+    <div class="spline-container">
+      <spline-viewer
+        url="https://prod.spline.design/9UPGNX2ilRUG5f5E/scene.splinecode"
+      ></spline-viewer>
+    </div>
+
+    <!-- Second Spline Viewer in Bottom-Right Corner -->
+    <div class="spline-corner-viewer">
+      <spline-viewer
+        url="https://prod.spline.design/nkl1WTUZTBi-g8Dy/scene.splinecode"
+      ></spline-viewer>
+    </div>
+
+    <!-- New 200x200 Div -->
+
+    <div class="small-box">
+      <div id="DecoleLOGO">
+        <img id="logoD" src="decole_logo.png" />
+      </div>
+      <div >
+        <img id="sentryLogo"  src="./sentry-logo.png"/>
+      </div>
+    </div>
+
+    <div class="small-box"></div>
+    <script type="text/javascript">
+      (function (d, t) {
+        var v = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: "6928aef8b28fdf9f8db366a7" },
+            url: "https://general-runtime.voiceflow.com",
+            versionID: "production",
+            voice: {
+              url: "https://runtime-api.voiceflow.com",
+            },
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+        v.type = "text/javascript";
+        s.parentNode.insertBefore(v, s);
+      })(document, "script");
+    </script>
+
+    <script type="text/javascript">
+      (function (d, t) {
+        var v = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: "6928b55cd526f7542831e84a" },
+            url: "https://general-runtime.voiceflow.com",
+            versionID: "production",
+            voice: {
+              url: "https://runtime-api.voiceflow.com",
+            },
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+        v.type = "text/javascript";
+        s.parentNode.insertBefore(v, s);
+      })(document, "script");
+    </script>
+  </body>
+</html>
